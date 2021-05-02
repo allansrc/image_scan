@@ -174,7 +174,11 @@
         return TOCropViewControllerAspectRatioPreset5x4;
     } else if ([@"7x5" isEqualToString:name]) {
         return TOCropViewControllerAspectRatioPreset7x5;
-    } else if ([@"16x9" isEqualToString:name]) {
+    } 
+    // else if ([@"9x16" isEqualToString:name]) {
+    //     return TOCropViewControllerAspectRatioPreset9x16;
+    // } 
+    else if ([@"16x9" isEqualToString:name]) {
         return TOCropViewControllerAspectRatioPreset16x9;
     } else {
         return TOCropViewControllerAspectRatioPresetOriginal;

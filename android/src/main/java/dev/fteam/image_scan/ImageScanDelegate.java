@@ -227,7 +227,11 @@ public class ImageScanDelegate implements PluginRegistry.ActivityResultListener 
             return new AspectRatio(null, 7.0f, 5.0f);
         } else if ("16x9".equals(name)) {
             return new AspectRatio(null, 16.0f, 9.0f);
-        } else {
+        
+        } else if ("9x16".equals(name)) {
+            return new AspectRatio(null,9.0f, 16.0f);
+        } 
+        else {
             return new AspectRatio(activity.getString(R.string.ucrop_label_original).toUpperCase(),
                     CropImageView.SOURCE_IMAGE_ASPECT_RATIO, 1.0f);
         }

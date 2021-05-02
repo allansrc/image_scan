@@ -79,33 +79,55 @@ class _MyAppState extends State<MyApp> {
   }
 
   Future<Null> _cropImage() async {
-    File? croppedFile = await ImageCropper.cropImage(
+    File? croppedFile = await ImageScan.cropImage(
       sourcePath: imageFile!.path,
-      aspectRatioPresets: [CropAspectRatioPreset.ratio16x9],
+      aspectRatioPresets: [
+        CropAspectRatioPreset.ratio16x9,
+      ],
       iosUiSettings: IOSUiSettings(
-        title: 'Test',
-        minimumAspectRatio: 16 / 9,
+        rectX: 90,
+        rectY: 160,
+        rectWidth: 90,
+        rectHeight: 160,
+        // showActivitySheetOnDone: true, // not need at this time <TDB>
+        showCancelConfirmationDialog: false, // defautl
+        rotateClockwiseButtonHidden: false, // default
+
+        hidesNavigationBar: true,
+
+        resetButtonHidden: false, // deffault
+        rotateButtonsHidden: false, // default
+        aspectRatioLockEnabled: false, // default
+        resetAspectRatioEnabled: true, // default
+        aspectRatioPickerButtonHidden: false, // default
+        aspectRatioLockDimensionSwapEnabled: false, // default
+        cancelButtonTitle: 'Cancelar',
+        doneButtonTitle: 'Cortar',
+        title: 'Teste',
       ),
       androidUiSettings: AndroidUiSettings(
-        toolbarTitle: 'Test', // optional
-        toolbarColor: Colors.blue, // optional
-        toolbarWidgetColor: Colors.white, // optional
+        toolbarTitle: 'Test',
+        toolbarColor: Colors.blue,
+        toolbarWidgetColor: Colors.white,
+
+        /// `Colors`
+        // statusBarColor: ,
+        // backgroundColor: ,
+        // activeControlsWidgetColor: ,
+        // dimmedLayerColor: ,
+        // cropFrameColor: ,
+        // cropGridColor: ,
+
+        /// `Style`
+        // cropFrameStrokeWidth: ,
+        // cropGridStrokeWidth: ,
+        // cropGridColumnCount: ,
+        // cropGridRowCount: ,
+        // showCropGrid: ,
+
+        lockAspectRatio: true, // keeps aspect
+        hideBottomControls: false, // default
         initAspectRatio: CropAspectRatioPreset.ratio16x9, // optional
-        lockAspectRatio: true, // optional > KEEPS ASPECT RAIO SELECTED
-
-        showCropGrid: true, // optional
-        hideBottomControls: true, // optional
-        cropFrameColor: Colors.amber, // optional
-
-        // cropGridColor: null,// optional
-        // statusBarColor: null,// optional
-        // backgroundColor: null, // optional
-        // cropGridRowCount: 5, // optional
-        // dimmedLayerColor: null,// optional // Corners colors
-        // cropGridStrokeWidth: null,// optional
-        // cropGridColumnCount: null,// optional
-        // cropFrameStrokeWidth: null,// optional
-        // activeControlsWidgetColor: null,// optional
       ),
     );
     if (croppedFile != null) {

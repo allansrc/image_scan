@@ -10,9 +10,9 @@ import 'package:flutter/services.dart';
 import 'options.dart';
 
 ///
-/// A convenient class wraps all api functions of **ImageCropper** plugin
+/// A convenient class wraps all api functions of **ImageScan** plugin
 ///
-class ImageCropper {
+class ImageScan {
   static const MethodChannel _channel = const MethodChannel('plugins.f-team.dev/image_scan');
 
   ///
@@ -35,7 +35,7 @@ class ImageCropper {
   /// by setting the value of [AndroidUiSettings.initAspectRatio]. Default is a list of
   /// [CropAspectRatioPreset.original], [CropAspectRatioPreset.square],
   /// [CropAspectRatioPreset.ratio3x2], [CropAspectRatioPreset.ratio4x3] and
-  /// [CropAspectRatioPreset.ratio16x9].
+  /// [CropAspectRatioPreset.ratio16x9] / [CropAspectRatioPreset.ratio9x16]..
   ///
   /// * cropStyle: controls the style of crop bounds, it can be rectangle or
   /// circle style (default is [CropStyle.rectangle]).
@@ -67,7 +67,8 @@ class ImageCropper {
       CropAspectRatioPreset.square,
       CropAspectRatioPreset.ratio3x2,
       CropAspectRatioPreset.ratio4x3,
-      CropAspectRatioPreset.ratio16x9
+      CropAspectRatioPreset.ratio9x16,
+      CropAspectRatioPreset.ratio16x9,
     ],
     CropStyle cropStyle = CropStyle.rectangle,
     ImageCompressFormat compressFormat = ImageCompressFormat.jpg,

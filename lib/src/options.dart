@@ -8,7 +8,7 @@ import 'shared/int_32.dart';
 /// A set of preset values can be used to setup the menu of crop aspect ratio
 /// options in the cropper view.
 
-enum CropAspectRatioPreset { original, square, ratio3x2, ratio5x3, ratio4x3, ratio5x4, ratio7x5, ratio16x9 }
+enum CropAspectRatioPreset { original, square, ratio3x2, ratio5x3, ratio4x3, ratio5x4, ratio7x5, ratio16x9, ratio9x16 }
 
 /// Crop style options. There're two supported styles, rectangle and circle.
 /// These style will changes the shape of crop bounds, rectangle or circle bounds.
@@ -282,6 +282,8 @@ String aspectRatioPresetName(CropAspectRatioPreset? preset) {
       return '7x5';
     case CropAspectRatioPreset.ratio16x9:
       return '16x9';
+    case CropAspectRatioPreset.ratio16x9:
+      return '9x16';
     default:
       return 'original';
   }
